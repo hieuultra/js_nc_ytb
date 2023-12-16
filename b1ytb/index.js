@@ -94,7 +94,7 @@ const productElement = document.querySelector("#products");
 const state = {
   products: [],
 };
-function getProduct() {
+const getProduct= ()=> {
   state.products = productList;
 }
 function template(s) {
@@ -116,3 +116,19 @@ function render() {
   productElement.innerHTML = template(state);
 }
 render();
+
+//function name
+function sum(a, b) {
+  return a + b;
+}
+console.log("function delcaration", sum(3, 4));
+
+//function expression
+const sum2 = function (a, b) {
+  return a + b;
+};
+console.log("function expression", sum2(3, 5));
+
+//arrow function: cu phap viet tat cua function expression
+const sum3 = (a, b) => a + b;
+console.log("arrow function", sum3(3, 5));
