@@ -97,6 +97,11 @@ const state = {
 const getProduct = () => {
   state.products = productList;
 };
+//xoa
+window.removeProduct = (id) => {
+  state.products = productList.filter((item) => item.id !== id);
+  render();
+};
 const template = (s) =>
   s.products
     .map(
@@ -108,6 +113,7 @@ const template = (s) =>
       />
       <h3><a href="" class="font-bold block my-3">${product.name}</a></h3>
       <span class="text-red-500">${product.price}</span>
+      <button onclick="removeProduct(${product.id})">Delete</button>
     </div>`
     )
     .join("");
