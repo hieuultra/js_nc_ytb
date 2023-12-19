@@ -94,27 +94,28 @@ const productElement = document.querySelector("#products");
 const state = {
   products: [],
 };
-const getProduct= ()=> {
+const getProduct = () => {
   state.products = productList;
-}
-function template(s) {
-  return s.products
-    .map(function (product) {
-      return `<div class="border p-4 rounded shadow">
+};
+const template = (s) =>
+  s.products
+    .map(
+      (product) =>
+        `<div class="border p-4 rounded shadow">
       <img
         src="${product.img}"
         alt=""
       />
       <h3><a href="" class="font-bold block my-3">${product.name}</a></h3>
       <span class="text-red-500">${product.price}</span>
-    </div>`;
-    })
+    </div>`
+    )
     .join("");
-}
-function render() {
+
+const render = () => {
   getProduct();
   productElement.innerHTML = template(state);
-}
+};
 render();
 
 //function name
