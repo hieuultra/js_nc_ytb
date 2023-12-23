@@ -24,6 +24,6 @@ module.exports = {
     rules: {
         quotes: ["error", "double", { allowTemplateLiterals: true }],
         indent: ["error", 4],
-        "eol-last": ["error", "never"],
+        "eol-last": "off",
     },
 };
