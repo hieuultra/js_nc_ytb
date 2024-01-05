@@ -139,3 +139,4 @@ console.log("function expression", sum2(3, 5));
 //arrow function: cu phap viet tat cua function expression
 const sum3 = (a, b) => a + b;
 console.log("arrow function", sum3(3, 5));
+
