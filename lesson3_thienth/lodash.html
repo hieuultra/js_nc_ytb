@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script>
+      //   var arr = ["pt14313", "web", "js nâng cao"];
+      //   var str = _.join(arr, "~");
+      //   document.write(str);
+
+      //   var shuffArr = _.shuffle([1, 2, 3, 4]);
+      //   console.log(shuffArr);
+      //console.log(_.difference([1, 2, 3, 4, 5], [2, 4, 5, 6]));//tre ve cac gia tri o mang 1 ma mang sau ko co.
+
+      //   var users = [
+      //     { user: "barney", active: false },
+      //     { user: "fred", active: false },
+      //     { user: "pebbles", active: true },
+      //   ];
+      //   console.log(
+      //     _.dropWhile(users, function (o) {
+      //       return !o.active;
+      //     })
+      //   );
+
+      //   var arr = [1, 2, 3, 4, 5, 6, 9];
+      //   var index = _.findIndex(arr, function (x) {
+      //     return x == 6;
+      //   });
+      //   console.log(index);//tra ve index cua phan tu ma no tim dc//ko tim dc phan tu thi tra ve -1
+
+      var date = moment("1991-02-03").format("DD/MM/YYYY");
+      console.log(date);
+
+      var date1 = moment("2020-03-15T09:31:28");
+      var date2 = moment("2020-03-15T09:32:42");
+
+      console.log(date2.diff(date1, "seconds"));//tinh chenh lech giua 2 diem thoi gian
+    </script>
+  </body>
+</html>
