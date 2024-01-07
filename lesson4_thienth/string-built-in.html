@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    Chuỗi gốc <input type="text" id="origin" />
+    <br />
+    Chuỗi cần thay thế<input type="text" id="repl" />
+    <br />
+    Chuỗi ký tự mới <input type="text" id="reValue" />
+    <br />
+    <button id="action">Replace</button>
     <script>
-        
+      // 1. xác định tất cả các dom
+      var chuoigoc = document.getElementById("origin");
+      var chuoithaythe = document.getElementById("repl");
+      var chuoimoi = document.getElementById("reValue");
+      var replace = document.getElementById("action");
+      // 2. tạo sự kiện cho thẻ button
+      replace.onclick = function () {
+        var str_goc = chuoigoc.value;
+        var str_canthay = chuoithaythe.value;
+        var str_moi = chuoimoi.value;
+        chuoigoc.value = str_goc.replace(str_canthay, str_moi);
+      };
+      // 3. lấy giá trị của các thẻ input & gán vào các biến tương ứng
+      // 4. thực hiện replace cho cái chuỗi gốc
+      // 5. cập nhật giá trị mới cho thẻ origin
+
+      var str = "fpt poly - fpt edu - fpt copr";
+      //   console.log(str.replace("fpt", "pt14313"));
+      //   while (str.indexOf("fpt") != -1) {
+      //     str = str.replace("fpt", "hieu");
+      //   }
+      while (/fpt/.test(str)) {
+        //==true
+        str = str.replace("fpt", "aaa");
+      }
+      console.log(str);
+
+      //   leon sees noel
+      //     chuyển chuỗi thành mảng
+      //   ["leon", "sees", "noel"];
+      // trong mảng, bắt đầu duyệt các phần tử từ
+      // index số 1 => hết
+
+      // viết hoa chữ cái đầu tiên ?
+      // cắt đc chữ cái đầu tiên khỏi chuỗi?
+      // => chuyển ký tự đầu tiên đó về chữ in hoa
+      // sử dụng replace để replace phần tử đầu tiên
+      // => ký tự đã biến đổi thành chữ hoa ở trên
     </script>
-    
-</body>
+  </body>
 </html>
