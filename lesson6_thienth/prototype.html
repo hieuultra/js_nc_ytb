@@ -1,0 +1,22 @@
+<script>
+  function Student(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  var dung = new Student("van dung", 29);
+  Student.prototype.sayHello = function () {
+    console.log("Hello world!, my name is " + this.name);
+  };
+  console.log(dung);
+  dung.sayHello();
+
+  var test = [1, 2, 3];
+  Array.prototype.tinhtong = function () {
+    var tong = 0;
+    this.forEach(function (value) {
+      tong += value;
+    });
+    return tong;
+  };
+  console.log(test.tinhtong());
+</script>
