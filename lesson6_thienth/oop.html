@@ -1,37 +1,55 @@
 <script>
-  //tao ra 1 doi tuong trong js
-  //   var person = {
-  //     name: "hieubt",
-  //     age: 19,
-  //     married: false,
-  //     nephew: [
-  //       {
-  //         name: "bui anh tuan",
-  //         age: 12,
-  //       },
-  //       {
-  //         name: "bui anh thu",
-  //         age: 15,
-  //       },
-  //     ],
-  //     eat: function () {
-  //       alert(this.name + " dang an com");
-  //     },
-  //   };
+  // tạo ra 1 đối tượng trong js object literals
+  var person = {
+    name: "hieubt", // Thuộc tính key: value (giá trị số, chuỗi, mảng, object,... - không phải là function),
+    age: 19,
+    married: false,
+    nephew: [
+      {
+        name: "bui anh tuan",
+        age: 12,
+      },
+      {
+        name: "bui anh thu",
+        age: 15,
+      },
+    ],
+    eat: function () {
+      // phương thức key: value (phải là function - trong function - đc phép sử dụng từ khóa this => object đang đc định nghĩa),
+      alert(this.name + " dang an com");
+    },
+  };
   //   console.log(person.name);
   //   person.eat();
   //   console.log(person);
+  var hang = {
+    __proto__: person,
+  };
+  console.log(hang);
+  hang.name = "nguyen hi hang";
+  console.log(hang);
 
-//   function Student(mssv, name) {
-//     this.mssv = mssv;
-//     this.name = name;
-//     this.learning = function () {
-//       console.log(
-//         `sinh vien ${this.mssv} - ${this.name} auto diem cao qua mon`
-//       );
-//     };
-//   }
-//   var Hieu = new Student("ph32408", "bui trung hieu");
-//   console.log(Hieu);
-//   Hieu.learning();
+  // Object literals:
+  // không thể tạo thực thể đc
+  // không kế thừa (nếu như không sử dụng __proto__)
+
+  // object constructor function
+  function Student(mssv, name) {
+    // giống như 1 class trong php2
+    this.mssv = mssv;
+    this.name = name;
+    this.learning = function () {
+      console.log(
+        `sinh vien ${this.mssv} - ${this.name} auto diem cao qua mon`
+      );
+    };
+  }
+  Student.prototype.hocgioi = function () {
+    alert(`em ten la ${this.name}, em hoc gioi all`);
+  };
+  // tạo ra 1 thực thể mới thuộc kiểu dữ liệu Student
+  var Hieu = new Student("ph32408", "bui trung hieu");
+  //   console.log(Hieu);
+  //   Hieu.learning();
+  // Hieu.hocgioi();
 </script>
