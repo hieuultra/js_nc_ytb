@@ -1,3 +1,12 @@
 <script>
-    
+  function testCallback(hamgido) {
+    console.log(3);
+    hamgido();
+  }
+
+  console.log(1);
+  testCallback(function () {
+    console.log(2);
+    console.log("hello callback");
+  });
 </script>
