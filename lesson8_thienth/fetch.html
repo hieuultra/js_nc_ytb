@@ -2,16 +2,79 @@
   var apiUrl = "https://5e7487579dff1200163537d7.mockapi.io/hotels";
   // fetch - là hàm để gửi request từ code javascript => server để lấy dữ liệu
   // không biết server sẽ mất bao lâu để trả về đc kết quả cho chúng ta
-//   var promise = new Promise(function (resolve, reject) {
-//     console.log(1);
-//     setTimeout(function () {
-//       console.log(2);
-//       return resolve(100);
-//     }, 3000);
-//   });
-//   promise.then(function (data) {
-//     console.log(data);
-//   });
+  //   var promise = new Promise(function (resolve, reject) {
+  //     console.log(1);
+  //     setTimeout(function () {
+  //       console.log(2);
+  //       return resolve(100);
+  //     }, 3000);
+  //   });
+  //   promise.then(function (data) {
+  //     console.log(data);
+  //   });
 
+  // var promise = new Promise(function (resolve, reject) {
+  //   console.log(0);
+  //   return resolve();
+  // });
 
+  // promise
+  //   .then(function () {
+  //     return new Promise(function (resolve, reject) {
+  //       setTimeout(function () {
+  //         console.log(1);
+  //         return resolve();
+  //       }, 5000);
+  //     });
+  //   })
+  //   .then(function () {
+  //     return new Promise(function (resolve, reject) {
+  //       setTimeout(function () {
+  //         console.log(2);
+  //         return resolve();
+  //       }, 4000);
+  //     });
+  //   })
+  //   .then(function () {
+  //     return new Promise(function (resolve, reject) {
+  //       setTimeout(function () {
+  //         console.log(3);
+  //         return resolve();
+  //       }, 3000);
+  //     });
+  //   })
+  //   .then(function () {
+  //     return new Promise(function (resolve, reject) {
+  //       setTimeout(function () {
+  //         console.log(4);
+  //         return resolve();
+  //       }, 2000);
+  //     });
+  //   })
+  //   .then(function () {
+  //     return new Promise(function (resolve, reject) {
+  //       setTimeout(function () {
+  //         console.log(5);
+  //         return resolve();
+  //       }, 1000);
+  //     });
+  //   });
+
+  //==================================================================
+  // function setColorPerTime(color, time) {
+  //   return new Promise(function (resolve) {
+  //     setTimeout(function () {
+  //       document.querySelector("body").style.background = color;
+  //       resolve();
+  //     }, time);
+  //   });
+  // }
+  // setColorPerTime("yellow", 1000)
+  //   .then(function () {
+  //     setColorPerTime("green", 1000);
+  //   })
+  //   .catch();
+
+  //==================================================================
+  
 </script>
