@@ -60,6 +60,56 @@
   //       }, 1000);
   //     });
   //   });
+  //======================================================================
+  const name = prompt("nhap ho ten:");
+  const subject = prompt("nhap mon hoc");
+  var lab1 = 0;
+  var lab2 = 0;
+  var lab3 = 0;
+  var final = 0;
+  var tong = 0;
+  var promise = new Promise(function (resolve, reject) {
+    lab1 = prompt("nhap diem lab1");
+    return resolve();
+  });
+  promise
+    .then(function () {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          lab2 = prompt("nhap diem lab2:");
+          return resolve();
+        }, 2000);
+      });
+    })
+    .then(function () {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          lab3 = prompt("nhap diem lab3");
+          return resolve();
+        }, 2000);
+      });
+    })
+    .then(function () {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          final = prompt("nhap diem final");
+          return resolve();
+        }, 1000);
+      });
+    })
+    .then(function () {
+      tong = lab1 * 0.1 + lab2 * 0.2 + lab3 * 0.3 + final * 0.4;
+      console.log(tong);
+      if (tong < 5) {
+        console.log("hoc luc yeu");
+      } else if (tong < 7) {
+        console.log("hoc luc tb");
+      } else if (tong < 8.5) {
+        console.log("hoc luc kha");
+      } else {
+        console.log("hoc luc xs");
+      }
+    });
 
   //==================================================================
   // function setColorPerTime(color, time) {
