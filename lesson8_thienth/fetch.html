@@ -13,6 +13,7 @@
   //     console.log(data);
   //   });
 
+  //=====================================================
   // var promise = new Promise(function (resolve, reject) {
   //   console.log(0);
   //   return resolve();
@@ -76,5 +77,48 @@
   //   .catch();
 
   //==================================================================
-  
+  //xu ly bat dong bo vs promise
+  var promise = new Promise(function (resolve, reject) {
+    console.log("da tra lai ket qua la resolve");
+    return resolve();
+  });
+  console.log(promise);
+  promise
+    .then(function () {
+      //tao ra 1 promise moi, va ket qua la hoan thanh
+      return new Promise(function (resolve, reject) {
+        console.log("da ngu day!");
+        setTimeout(function () {
+          console.log("da ra khoi guong!");
+          return resolve();
+        }, 1000);
+      });
+    })
+    .then(function () {
+      return new Promise(function (resolve, reject) {
+        console.log("b2. dang danh rang!");
+        setTimeout(function () {
+          console.log("da danh rang xong!");
+          return resolve();
+        }, 2000);
+      });
+    })
+    .then(function () {
+      return new Promise(function (resolve, reject) {
+        console.log("b3. dang thay quan ao!");
+        setTimeout(function () {
+          console.log("da thay quan ao xong!");
+          return resolve();
+        }, 3000);
+      });
+    })
+    .then(function () {
+      return new Promise(function (resolve, reject) {
+        console.log("b4. dang di chuyen!");
+        setTimeout(function () {
+          console.log("da den truong!");
+          return resolve();
+        }, 4000);
+      });
+    });
 </script>
