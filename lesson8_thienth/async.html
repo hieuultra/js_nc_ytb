@@ -1,3 +1,26 @@
 <script>
-    
+  var name = prompt("Your name");
+  var subject = prompt("Subject");
+  var lab1 = 0,
+    lab2 = 0,
+    lab3 = 0,
+    final = 0,
+    avg = 0;
+  function inputScore(lab, ms) {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        var score = prompt("input " + lab);
+        return resolve(score);
+      }, ms);
+    });
+  }
+  async function main() {
+    lab1 = await inputScore("lab1", 0);
+    lab2 = await inputScore("lab2", 3000);
+    lab3 = await inputScore("lab3", 4000);
+    final = await inputScore("final", 3000);
+    avg = lab1 * 0.1 + lab2 * 0.2 + lab3 * 0.3 + final * 0.4;
+    console.log(avg);
+  }
+  main();
 </script>
