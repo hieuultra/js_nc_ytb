@@ -1,3 +1,9 @@
 <script>
-    var data=[];
+  var data = '{"name": "Trần Hữu Thiện","age": 30}';
+
+  console.log(typeof data);
+  var data2 = JSON.parse(data);//su dung json.parse khi lay dc data tu API, tu noi cung cap data
+  console.log(typeof data2);
+  data2.name;
+  data2.age;
 </script>
