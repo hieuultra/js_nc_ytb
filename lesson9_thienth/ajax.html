@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-    
-</body>
+  </head>
+  <body>
+    <table class="table table-stripped">
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Logo</th>
+        <th>Address</th>
+        <th>
+          <button class="btn btn-sm btn-success">Thêm mới</button>
+        </th>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var requestUrl = "https://5e96a07f5b19f10016b5e716.mockapi.io/hotels";
+      fetch(requestUrl, {
+        method: "get",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          document.querySelector("tbody").innerHTML = "";
+          if (data.length > 0) {
+            var content = ``;
+            data.forEach((element) => {
+              content += `<tr id="row-${element.id}">
+                                    <td>${element.id}</td>
+                                    <td>${element.name}</td>
+                                    <td>
+                                        <img src="${element.logo}" width="100px" class="img img-avatar"/>
+                                    </td>
+                                    <td>${element.address}</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Sửa</button>  
+                                        <button class="btn btn-sm btn-danger"  onclick="removeElement(${element.id})">Xóa</button>  
+                                    </td>
+                    
+                                </tr>`;
+            });
+            document.querySelector("tbody").innerHTML = content;
+          }
+        });
+
+      function removeElement(id) {
+        var removeNode = document.querySelector("#row-" + id);
+        removeNode.parentNode.removeChild(removeNode);
+        var removeUrl = requestUrl + "/" + id;
+        fetch(removeUrl, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      }
+    </script>
+  </body>
 </html>
