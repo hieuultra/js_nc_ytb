@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thong tin thoi tiet</title>
+  </head>
+  <body>
+    <div>
+      <label for="">nhap ten city</label>
+      <input
+        type="text"
+        name=""
+        id="city-name"
+        placeholder="nhap ten city muon tim va enter"
+      />
+    </div>
+    <div>
+      <h2>Thông tin thời tiết</h2>
+      <h3>
+        Tên Thành Phố <span id="opCityName"></span>,
+        <span id="opCountryName"></span>
+      </h3>
+      <p>Nhiệt độ: <span id="opTemp"></span> độ C</p>
+      <p>Độ ẩm: <span id="opHum"></span>%</p>
+      <p>Thời tiết: <span id="weather"></span></p>
+    </div>
+    <script>
+      var apiUrl =
+        "https://api.openweathermap.org/data/2.5/weather?APPID=4f2e117329cc79caf42dd9006de1c6e1&units=metric";
+      var city = document.querySelector("#city-name");
+      // bắt sự kiện enter của thẻ input
+      city.onkeydown = function (event) {
+        if (event.keyCode === 13) {
+          // lấy value từ thẻ input sau đó gửi request lên api.weather
+          var cityname = event.target.value;
+          var requestUrl = apiUrl + "&q=" + cityname;
+          // gửi request lên server
+          fetch(requestUrl, { method: "GET" })
+            .then((response) => response.json())
+            .then((data) => {
+              // hiển thị các thông số của dữ liệu nhận về trên html
+              // 1. Hiển thị tên thành phố
+              document.querySelector("#opCityName").innerText = data.name;
+              // 2. Hiển thị tên quốc gia
+              document.querySelector("#opCountryName").innerText =
+                data.sys.country;
+              // 3. Hiển thị nhiệt độ hiện tại
+              document.querySelector("#opTemp").innerText = data.main.temp;
+              // 4. Hiển thị thời tiết hiện tại
+              document.querySelector("#weather").innerText =
+                data.weather[0].main;
+              // 5. Hiển thị độ ẩm
+              document.querySelector("#opHum").innerText = data.main.humidity;
+              console.log(data);
+            });
+        }
+      };
+    </script>
+  </body>
+</html>
