@@ -19,12 +19,13 @@
       <tbody></tbody>
     </table>
     <script>
-      var requestUrl = "https://5e96a07f5b19f10016b5e716.mockapi.io/hotels";
+      var requestUrl = "https://65af62ac2f26c3f2139a947f.mockapi.io/hotels";
       fetch(requestUrl, {
         method: "get",
       })
         .then((response) => response.json())
         .then((data) => {
+          // console.log(data);
           document.querySelector("tbody").innerHTML = "";
           if (data.length > 0) {
             var content = ``;
